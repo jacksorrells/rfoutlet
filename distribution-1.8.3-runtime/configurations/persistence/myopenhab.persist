@@ -1,0 +1,6 @@
+Strategies {
+	default = everyUpdate
+}
+Items {
+	* : strategy = everyUpdate
+}
