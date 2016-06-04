@@ -5,6 +5,9 @@ Group gLights
 Switch 	RF_Switch_1 	"RF_Switch_1" 	(All, gMyOpenHAB, gLights) 		{exec=">[ON:sudo /var/www/rfoutlet/rf-switch-1-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-switch-1-off.sh]"}
 Switch 	RF_Switch_2 	"RF_Switch_2" 	(All, gMyOpenHAB, gLights) 		{exec=">[ON:sudo /var/www/rfoutlet/rf-switch-2-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-switch-2-off.sh]"}
 Switch 	RF_Switch_3 	"RF_Switch_3" 	(All, gMyOpenHAB) 				{exec=">[ON:sudo /var/www/rfoutlet/rf-switch-3-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-switch-3-off.sh]"}
+Switch RF_Switch_4		"RF_Switch_4"	(All, gMyOpenHAB, gLights)		{exec=">[ON:sudo /var/www/rfoutlet/rf-switch-4-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-switch-4-off.sh]"}
+Switch RF_Switch_5		"RF_Switch_5"	(All, gMyOpenHAB)				{exec=">[ON:sudo /var/www/rfoutlet/rf-switch-5-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-switch-5-off.sh]"}
+Switch RF_Switch_6		"RF_Switch_6"	(All, gMyOpenHAB)				{exec=">[ON:sudo /var/www/rfoutlet/rf-switch-6-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-switch-6-off.sh]"}
 
 Switch 	All_Lights 		"All_Lights"	(All, gMyOpenHAB, gLights)		{exec=">[ON:sudo /var/www/rfoutlet/rf-lights-on.sh] >[OFF:sudo /var/www/rfoutlet/rf-lights-off.sh]"}
 
