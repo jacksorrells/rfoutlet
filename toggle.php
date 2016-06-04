@@ -6,23 +6,33 @@ header('Cache-Control: no-cache, must-revalidate');
 $codes = array(
     "1" => array(
         "on" => 4281651,
-        "off" => 4281660
+        "off" => 4281660,
+        "pulseLength" => 176
     ),
     "2" => array(
         "on" => 4281795,
-        "off" => 4281804
+        "off" => 4281804,
+        "pulseLength" => 176
     ),
     "3" => array(
         "on" => 4282115,
-        "off" => 4282124
+        "off" => 4282124,
+        "pulseLength" => 176
     ),
     "4" => array(
         "on" => 351491,
-        "off" => 351500
+        "off" => 351500,
+        "pulseLength" => 181
     ),
     "5" => array(
         "on" => 357635,
-        "off" => 357644
+        "off" => 357644,
+        "pulseLength" => 181
+    ),
+    "6" => array(
+        "on" => 357635,
+        "off" => 357644,
+        "pulseLength" => 181
     ),
 );
 
@@ -45,20 +55,12 @@ if (!file_exists($codeSendPath)) {
 $outletLight = $_POST['outletId'];
 $outletStatus = $_POST['outletStatus'];
 
-if ($outletLight == "6") {
-    // 6 is all 5 outlets combined
-    if (function_exists('array_column')) {
-        // PHP >= 5.5
-        $codesToToggle = array_column($codes, $outletStatus);
-    } else {
-        $codesToToggle = array();
-        foreach ($codes as $outletCodes) {
-            array_push($codesToToggle, $outletCodes[$outletStatus]);
-        }
-    }
-} else {
-    // One
-    $codesToToggle = array($codes[$outletLight][$outletStatus]);
+$codesToToggle = array($codes[$outletLight][$outletStatus]);
+
+if ($outletLight <= 3) {
+    $codeSendPulseLength = "176";
+} else if ($outletLight > 3 && $outletLight < 7) {
+    $codeSendPulseLength
 }
 
 foreach ($codesToToggle as $codeSendCode) {
