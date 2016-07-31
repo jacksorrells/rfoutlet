@@ -1,11 +1,16 @@
 sitemap jack label="Jack's House" {
 
 	Frame {
-		Switch item=RF_Switch_1 label="Lights 1"
-		Switch item=RF_Switch_2 label="Lights 2"
+		Switch item=RF_Switch_1 label="Big Lamp"
+		Switch item=RF_Switch_2 label="Little Lamp"
+		Switch item=RF_Switch_4 label="Mood Lighting" icon="siren-on"
 		Switch item=All_Lights label="All Lights"
 
 		Switch item=RF_Switch_3 label="Television" icon="television"
+
+		Switch item=RF_Switch_5 label="Coffee Maker" icon="sewerage"
+
+		Switch item=RF_Switch_6 label="Beat Laboratory"
 
 		Switch item=Everything label="Everything"
 	}
