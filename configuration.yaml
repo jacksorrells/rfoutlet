@@ -1,0 +1,86 @@
+homeassistant:
+  name: Home
+  latitude: 30.3544
+  longitude: -97.7344
+  elevation: 215
+  unit_system: imperial
+  time_zone: America/Chicago
+
+  customize:
+    switch.living_room_light_1:
+      friendly_name: Living Room 1
+    switch.living_room_light_2:
+      friendly_name: Living Room 2
+    switch.living_room_light_3:
+      friendly_name: Living Room 3
+    switch.christmas_lights:
+      friendly_name: Set the mood
+    switch.television:
+      friendly_name: television
+    switch.coffee_maker:
+      friendly_name: Coffee
+    group.christmas_lights:
+      friendly_name: Christmas Lights
+    group.coffee_maker:
+      friendly_name: Coffee Maker
+    group.tv:
+      friendly_name: TV
+
+frontend:
+
+http:
+  # api_password: Fortressofsolitude
+
+updater:
+discovery:
+conversation:
+history:
+logbook:
+
+switch:
+  -  platform: command_line
+     switches:
+       living_room_light_1:
+         command_on: sudo /var/www/rfoutlet/rf-switch-1-on.sh
+         command_off: sudo /var/www/rfoutlet/rf-switch-1-off.sh
+        living_room_light_2:
+          command_on: sudo /var/www/rfoutlet/rf-switch-2-on.sh
+          command_off: sudo /var/www/rfoutlet/rf-switch-2-off.sh
+        living_room_light_3:
+          command_on: sudo /var/www/rfoutlet/rf-switch-6-on.sh
+          command_off: sudo /var/www/rfoutlet/rf-switch-6-off.sh
+        christmas_lights:
+          command_on: sudo /var/www/rfoutlet/rf-switch-4-on.sh
+          command_off: sudo /var/www/rfoutlet/rf-switch-4-off.sh
+        television:
+          command_on: sudo /var/www/rfoutlet/rf-switch-3-on.sh
+          command_off: sudo /var/www/rfoutlet/rf-switch-3-off.sh
+        coffee_maker:
+          command_on: sudo /var/www/rfoutlet/rf-switch-5-on.sh
+          command_off: sudo /var/www/rfoutlet/rf-switch-5-off.sh
+
+
+group:
+  home:
+    view: yes
+    entities:
+      - group.lights
+      - group.christmas_lights
+      - group.tv
+      - group.coffee_maker
+
+  lights: switch.living_room_light_1, switch.living_room_light_2, switch.living_room_light_3
+
+  christmas_lights: switch.christmas_lights
+
+  tv: media_player.fuckstick, switch.television
+
+  coffee_maker: switch.coffee_maker
+
+emulated_hue:
+  host_ip:192.168.0.3
+  listen_port: 8300
+  expose_by_default: true
+
+ifttt:
+  key: grVGzgokWMrph8A1WAE4tyY5_0bH9CVahhFq0h03FEu
